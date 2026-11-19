@@ -15,6 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MR_Test_XRI.unity
     guid: f82afe04961c91b438719a518c56eb02
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: de6a0d7948a85b246bb5daae5d2790d3, type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 34b80d5669dd4374085ce21b2ef03f3f, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: c310cede7e901ab4e905f3d31d4ed385, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: e2ccea3fd1675b144a8ea75c634aae2b, type: 2}
