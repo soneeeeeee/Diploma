@@ -50,6 +50,18 @@ namespace XrInterior.ProjectData
                 foreach (var vo in s.Volumes) Register("объём снимка", vo.Id);
             }
 
+            // 1а. Снимки пространства: метки объёмов и качество.
+            foreach (var s in p.SpaceSnapshots)
+            {
+                foreach (var vo in s.Volumes)
+                {
+                    if (!VolumeLabels.IsValid(vo.Label))
+                        errors.Add("Объём снимка '" + vo.Id + "': недопустимая метка '" + vo.Label + "'.");
+                }
+                if (s.Quality < 0 || s.Quality > 100)
+                    errors.Add("Снимок '" + s.Id + "': quality должно быть от 0 до 100.");
+            }
+
             // 2. Помещения.
             foreach (var r in p.Rooms)
             {
