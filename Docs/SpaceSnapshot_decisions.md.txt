@@ -1,0 +1,14 @@
+# SpaceSnapshot: договорённости A и B (24.11.2026)
+
+- Поворот: rotationY в градусах, кватернионы не используются.
+- center хранится в системе сессии сканирования (как отдаёт MRUK: метры, Y вверх).
+  Связь с системой проекта: Alignment (offset + rotationY).
+  Для проекта из скана Alignment единичный.
+- floor/ceiling: плоскость горизонтальна на высоте center.y.
+  width: вдоль локальной X после rotationY; height: вдоль Z (глубина).
+  Непрямоугольный пол заменяется ограничивающим прямоугольником.
+- wall: width: длина вдоль стены, height: вертикаль.
+- volumes.label: table, sofa, bed, cabinet, chair, other (валидатор отклоняет остальное).
+- Маппинг MRUK→label делает A: COUCH→sofa, STORAGE→cabinet, TABLE→table, BED→bed, остальное→other.
+- volumes.center: геометрический центр, size: полные габариты.
+  Для напольных предметов проекта: center.y = pivot.y + size.y / 2.
