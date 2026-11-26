@@ -86,6 +86,7 @@ namespace XRInterior.Reality
             ReadFloorOutline();
             LogSummary();
             LogFloorOutline();
+            LogWallEnds(); // <-- ДОБАВЛЕНО: вызов логирования концов стен
         }
 
         public IReadOnlyList<RealPlane> GetPlanes() => _planes;
@@ -201,7 +202,21 @@ namespace XRInterior.Reality
             }
             Debug.Log($"[Reality] outline perimeter {perimeter:F2} m, area {Mathf.Abs(area2) * 0.5f:F2} m2");
         }
-        // ----------------------------------------------------
+
+        // --- ДОБАВЛЕНО: Метод логирования концов стен ---
+        private void LogWallEnds()
+        {
+            int i = 0;
+            foreach (var p in _planes)
+            {
+                if (p.Type != RealSurfaceType.Wall) continue;
+                Vector3 right = p.Rotation * Vector3.right;
+                Vector3 a = p.Center - right * (p.Size.x * 0.5f);
+                Vector3 b = p.Center + right * (p.Size.x * 0.5f);
+                Debug.Log($"[Reality] wallEnds {i++}: a ({a.x:F2}, {a.z:F2}) b ({b.x:F2}, {b.z:F2}) len {p.Size.x:F2}");
+            }
+        }
+        // ------------------------------------------------
 
         private void LogSummary()
         {
