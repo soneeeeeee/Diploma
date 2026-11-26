@@ -104,3 +104,10 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+# Генерируются Unity / Meta SDK при сборке, у каждого свои
+Assets/Resources/OVRBuildConfig.asset*
+Assets/Resources/DevAgentSettings.asset*
+Assets/Resources/PerformanceTestRunInfo.json*
+Assets/Resources/PerformanceTestRunSettings.json*
+Assets/StreamingAssets/RuntimeActionBindings.json*
