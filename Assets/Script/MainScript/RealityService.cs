@@ -17,6 +17,17 @@ namespace XRInterior.Reality
         private readonly List<Bounds> _volumeBounds = new List<Bounds>();
         private MRUKRoom _room;
 
+        // --- Поля и свойства для контура пола и высоты ---
+        private readonly List<Vector2> _floorOutline = new List<Vector2>(); // x, z в мировых координатах скана
+
+        public float FloorY { get; private set; }
+        public float CeilingY { get; private set; }
+        public float RoomHeight => CeilingY - FloorY;
+
+        /// <summary>Контур пола: вершины по порядку, x и z (в Vector2: x и y).</summary>
+        public IReadOnlyList<Vector2> GetFloorOutline() => _floorOutline;
+        // -------------------------------------------------
+
         private void Start()
         {
             if (MRUK.Instance == null)
@@ -49,7 +60,7 @@ namespace XRInterior.Reality
                     Rect r = anchor.PlaneRect.Value;
                     _planes.Add(new RealPlane
                     {
-                        Id = $"{type}_{_planes.Count:D2}", // <-- ИЗМЕНЕНО: уникальный Id для плоскости
+                        Id = $"{type}_{_planes.Count:D2}",
                         Type = type,
                         Center = anchor.transform.position,
                         Rotation = anchor.transform.rotation,
@@ -62,7 +73,7 @@ namespace XRInterior.Reality
                     Vector3 center = anchor.transform.TransformPoint(vb.center);
                     _volumes.Add(new RealVolume
                     {
-                        Id = $"{anchor.Label}_{_volumes.Count:D2}", // <-- ИЗМЕНЕНО: уникальный Id для объёма
+                        Id = $"{anchor.Label}_{_volumes.Count:D2}",
                         Label = anchor.Label.ToString(),
                         Center = center,
                         Rotation = anchor.transform.rotation,
@@ -72,7 +83,9 @@ namespace XRInterior.Reality
                 }
             }
 
+            ReadFloorOutline();
             LogSummary();
+            LogFloorOutline();
         }
 
         public IReadOnlyList<RealPlane> GetPlanes() => _planes;
@@ -139,6 +152,56 @@ namespace XRInterior.Reality
             }
             return b;
         }
+
+        // --- Методы для чтения и логирования контура пола ---
+        private void ReadFloorOutline()
+        {
+            _floorOutline.Clear();
+            MRUKAnchor floor = _room.FloorAnchor;
+            MRUKAnchor ceiling = _room.CeilingAnchor;
+            FloorY = floor != null ? floor.transform.position.y : 0f;
+            CeilingY = ceiling != null ? ceiling.transform.position.y : FloorY;
+
+            if (floor == null || floor.PlaneBoundary2D == null) return;
+            foreach (var p in floor.PlaneBoundary2D)
+            {
+                Vector3 w = floor.transform.TransformPoint(new Vector3(p.x, p.y, 0f));
+                _floorOutline.Add(new Vector2(w.x, w.z));
+            }
+
+            // единый порядок обхода: против часовой стрелки при виде сверху
+            if (SignedArea(_floorOutline) < 0f)
+                _floorOutline.Reverse();
+        }
+
+        private static float SignedArea(IReadOnlyList<Vector2> pts)
+        {
+            float s = 0f;
+            for (int i = 0; i < pts.Count; i++)
+            {
+                Vector2 a = pts[i];
+                Vector2 b = pts[(i + 1) % pts.Count];
+                s += a.x * b.y - b.x * a.y;
+            }
+            return s * 0.5f;
+        }
+
+        private void LogFloorOutline()
+        {
+            Debug.Log($"[Reality] floorY {FloorY:F2}, ceilingY {CeilingY:F2}, height {RoomHeight:F2} m, outline points {_floorOutline.Count}");
+            float perimeter = 0f, area2 = 0f;
+            for (int i = 0; i < _floorOutline.Count; i++)
+            {
+                Vector2 a = _floorOutline[i];
+                Vector2 b = _floorOutline[(i + 1) % _floorOutline.Count];
+                float len = Vector2.Distance(a, b);
+                perimeter += len;
+                area2 += a.x * b.y - b.x * a.y;
+                Debug.Log($"[Reality] outline {i}: x {a.x:F2} z {a.y:F2}, edge to next {len:F2} m");
+            }
+            Debug.Log($"[Reality] outline perimeter {perimeter:F2} m, area {Mathf.Abs(area2) * 0.5f:F2} m2");
+        }
+        // ----------------------------------------------------
 
         private void LogSummary()
         {
