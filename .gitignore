@@ -111,3 +111,5 @@ Assets/Resources/DevAgentSettings.asset*
 Assets/Resources/PerformanceTestRunInfo.json*
 Assets/Resources/PerformanceTestRunSettings.json*
 Assets/StreamingAssets/RuntimeActionBindings.json*
+/Assets/StreamingAssets/
+/RuntimeActionBindings.json
