@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Meta.XR.MRUtilityKit;
 using UnityEngine;
 using XRInterior.Contracts;
+using XrInterior.ProjectData;
 
 namespace XRInterior.Reality
 {
@@ -86,7 +87,15 @@ namespace XRInterior.Reality
             ReadFloorOutline();
             LogSummary();
             LogFloorOutline();
-            LogWallEnds(); // <-- ДОБАВЛЕНО: вызов логирования концов стен
+            LogWallEnds();
+
+            // проверка снимка
+            var snap = SpaceSnapshotBuilder.Build(this);
+            Debug.Log($"[Reality] snapshot: planes {snap.Planes.Count}, volumes {snap.Volumes.Count}, boundary {snap.FloorBoundary.Count}, floorY {snap.FloorHeight:F2}, height {snap.RoomHeight:F2}");
+            foreach (var sp in snap.Planes)
+                if (sp.Kind == SnapshotPlaneKind.Door || sp.Kind == SnapshotPlaneKind.Window)
+                    Debug.Log($"[Reality] snapshot {sp.Id} parent {sp.ParentPlaneId ?? "none"}");
+            Debug.Log($"[Reality] snapshot json chars: {Newtonsoft.Json.JsonConvert.SerializeObject(snap).Length}");
         }
 
         public IReadOnlyList<RealPlane> GetPlanes() => _planes;
@@ -203,7 +212,7 @@ namespace XRInterior.Reality
             Debug.Log($"[Reality] outline perimeter {perimeter:F2} m, area {Mathf.Abs(area2) * 0.5f:F2} m2");
         }
 
-        // --- ДОБАВЛЕНО: Метод логирования концов стен ---
+        // --- Метод логирования концов стен ---
         private void LogWallEnds()
         {
             int i = 0;
@@ -216,7 +225,7 @@ namespace XRInterior.Reality
                 Debug.Log($"[Reality] wallEnds {i++}: a ({a.x:F2}, {a.z:F2}) b ({b.x:F2}, {b.z:F2}) len {p.Size.x:F2}");
             }
         }
-        // ------------------------------------------------
+        // -------------------------------------
 
         private void LogSummary()
         {
