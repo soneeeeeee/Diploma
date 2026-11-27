@@ -27,6 +27,9 @@ namespace XRInterior.Reality
                 Quality = 0
             };
 
+            // Правка 1: Добавлен префикс для ID
+            string prefix = snap.Id.Substring(0, 8);
+
             foreach (var p in reality.GetFloorOutline())
                 snap.FloorBoundary.Add(new PlanPoint(p.x, p.y));
 
@@ -42,7 +45,8 @@ namespace XRInterior.Reality
 
                 var plane = new SnapshotPlane
                 {
-                    Id = $"{kind.ToString().ToLowerInvariant()}_{n:D2}",
+                    // Правка 2: ID плоскости теперь содержит префикс
+                    Id = $"{prefix}_{kind.ToString().ToLowerInvariant()}_{n:D2}",
                     Kind = kind,
                     Center = new Vec3(rp.Center.x, rp.Center.y, rp.Center.z),
                     RotationY = YawOfWidthAxis(rp.Rotation),
@@ -80,7 +84,8 @@ namespace XRInterior.Reality
             {
                 snap.Volumes.Add(new SnapshotVolume
                 {
-                    Id = $"volume_{v++:D2}",
+                    // Правка 3: ID тома теперь содержит префикс
+                    Id = $"{prefix}_volume_{v++:D2}",
                     Label = NormalizeLabel(rv.Label),
                     Center = new Vec3(rv.Center.x, rv.Center.y, rv.Center.z),
                     RotationY = YawOfWidthAxis(rv.Rotation),
