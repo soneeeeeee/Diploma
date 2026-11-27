@@ -146,6 +146,8 @@ namespace XrInterior.ProjectData
         public Vec3 Center { get; set; } = Vec3.Zero;
         public float RotationY { get; set; } = 0f;
         public Size2 Size { get; set; }
+        /// <summary>Для двери/окна: Id плоскости стены, в которой находится проём. null - неизвестно.</summary>
+        public string ParentPlaneId { get; set; }
     }
 
     public class SnapshotVolume : ExtensibleEntity
@@ -167,6 +169,10 @@ namespace XrInterior.ProjectData
         public List<SnapshotPlane> Planes { get; set; } = new List<SnapshotPlane>();
         public List<SnapshotVolume> Volumes { get; set; } = new List<SnapshotVolume>();
         public float FloorHeight { get; set; } = 0f;
+        /// <summary>Контур пола в плане (x, z), по порядку обхода, метры. Пусто - контур не получен.</summary>
+        public List<PlanPoint> FloorBoundary { get; set; } = new List<PlanPoint>();
+        /// <summary>Высота помещения от пола до потолка, метры. 0 - неизвестна.</summary>
+        public float RoomHeight { get; set; } = 0f;
         public int Quality { get; set; } = 0;
     }
 

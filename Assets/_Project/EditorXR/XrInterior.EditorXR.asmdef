@@ -1,0 +1,19 @@
+{
+    "name": "XrInterior.EditorXR",
+    "rootNamespace": "XrInterior.EditorXR",
+    "references": [
+        "XrInterior.ProjectData",
+        "XrInterior.ProjectData.UnityIntegration",
+        "Unity.XR.Interaction.Toolkit",
+        "Unity.InputSystem"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

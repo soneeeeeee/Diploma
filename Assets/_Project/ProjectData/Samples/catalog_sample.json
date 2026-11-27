@@ -1,0 +1,505 @@
+{
+  "categories": [
+    {
+      "id": "seating",
+      "name": "Сидения"
+    },
+    {
+      "id": "tables",
+      "name": "Столы"
+    },
+    {
+      "id": "storage",
+      "name": "Хранение"
+    },
+    {
+      "id": "lighting",
+      "name": "Освещение"
+    },
+    {
+      "id": "decor",
+      "name": "Декор"
+    }
+  ],
+  "items": [
+    {
+      "id": "chair_office_01",
+      "name": "Офисный стул",
+      "categoryId": "seating",
+      "size": {
+        "x": 0.55,
+        "y": 0.9,
+        "z": 0.55
+      },
+      "prefabKey": "furniture/chair_office_01",
+      "allowedMaterialIds": [
+        "mat_fabric_grey_01",
+        "mat_leather_black_01",
+        "mat_metal_01"
+      ],
+      "placement": "floor",
+      "alignToWall": false
+    },
+    {
+      "id": "chair_wood_01",
+      "name": "Деревянный стул",
+      "categoryId": "seating",
+      "size": {
+        "x": 0.45,
+        "y": 0.85,
+        "z": 0.5
+      },
+      "prefabKey": "furniture/chair_wood_01",
+      "allowedMaterialIds": [
+        "mat_wood_oak_01",
+        "mat_wood_walnut_01"
+      ],
+      "placement": "floor",
+      "alignToWall": false
+    },
+    {
+      "id": "sofa_3seat_01",
+      "name": "Диван трёхместный",
+      "categoryId": "seating",
+      "size": {
+        "x": 2.0,
+        "y": 0.85,
+        "z": 0.9
+      },
+      "prefabKey": "furniture/sofa_3seat_01",
+      "allowedMaterialIds": [
+        "mat_fabric_grey_01",
+        "mat_leather_black_01"
+      ],
+      "placement": "floor",
+      "alignToWall": true
+    },
+    {
+      "id": "armchair_01",
+      "name": "Кресло",
+      "categoryId": "seating",
+      "size": {
+        "x": 0.8,
+        "y": 0.9,
+        "z": 0.85
+      },
+      "prefabKey": "furniture/armchair_01",
+      "allowedMaterialIds": [
+        "mat_fabric_grey_01",
+        "mat_leather_black_01"
+      ],
+      "placement": "floor",
+      "alignToWall": false
+    },
+    {
+      "id": "table_desk_01",
+      "name": "Письменный стол",
+      "categoryId": "tables",
+      "size": {
+        "x": 1.4,
+        "y": 0.75,
+        "z": 0.7
+      },
+      "prefabKey": "furniture/table_desk_01",
+      "allowedMaterialIds": [
+        "mat_wood_oak_01",
+        "mat_wood_walnut_01",
+        "mat_metal_01"
+      ],
+      "placement": "floor",
+      "alignToWall": true
+    },
+    {
+      "id": "table_coffee_01",
+      "name": "Журнальный столик",
+      "categoryId": "tables",
+      "size": {
+        "x": 1.0,
+        "y": 0.45,
+        "z": 0.6
+      },
+      "prefabKey": "furniture/table_coffee_01",
+      "allowedMaterialIds": [
+        "mat_wood_oak_01",
+        "mat_wood_walnut_01",
+        "mat_metal_01"
+      ],
+      "placement": "floor",
+      "alignToWall": false
+    },
+    {
+      "id": "table_dining_01",
+      "name": "Обеденный стол",
+      "categoryId": "tables",
+      "size": {
+        "x": 1.6,
+        "y": 0.75,
+        "z": 0.9
+      },
+      "prefabKey": "furniture/table_dining_01",
+      "allowedMaterialIds": [
+        "mat_wood_oak_01",
+        "mat_wood_walnut_01"
+      ],
+      "placement": "floor",
+      "alignToWall": false
+    },
+    {
+      "id": "table_lecture_01",
+      "name": "Парта",
+      "categoryId": "tables",
+      "size": {
+        "x": 1.2,
+        "y": 0.75,
+        "z": 0.6
+      },
+      "prefabKey": "furniture/table_lecture_01",
+      "allowedMaterialIds": [
+        "mat_wood_oak_01",
+        "mat_wood_walnut_01"
+      ],
+      "placement": "floor",
+      "alignToWall": false
+    },
+    {
+      "id": "wardrobe_01",
+      "name": "Шкаф платяной",
+      "categoryId": "storage",
+      "size": {
+        "x": 1.0,
+        "y": 2.1,
+        "z": 0.55
+      },
+      "prefabKey": "furniture/wardrobe_01",
+      "allowedMaterialIds": [
+        "mat_wood_oak_01",
+        "mat_wood_walnut_01"
+      ],
+      "placement": "floor",
+      "alignToWall": true
+    },
+    {
+      "id": "bookcase_01",
+      "name": "Книжный шкаф",
+      "categoryId": "storage",
+      "size": {
+        "x": 0.9,
+        "y": 1.9,
+        "z": 0.35
+      },
+      "prefabKey": "furniture/bookcase_01",
+      "allowedMaterialIds": [
+        "mat_wood_oak_01",
+        "mat_wood_walnut_01"
+      ],
+      "placement": "floor",
+      "alignToWall": true
+    },
+    {
+      "id": "cabinet_low_01",
+      "name": "Тумба",
+      "categoryId": "storage",
+      "size": {
+        "x": 0.8,
+        "y": 0.55,
+        "z": 0.45
+      },
+      "prefabKey": "furniture/cabinet_low_01",
+      "allowedMaterialIds": [
+        "mat_wood_oak_01",
+        "mat_wood_walnut_01"
+      ],
+      "placement": "floor",
+      "alignToWall": true
+    },
+    {
+      "id": "shelf_wall_01",
+      "name": "Полка настенная",
+      "categoryId": "storage",
+      "size": {
+        "x": 0.8,
+        "y": 0.25,
+        "z": 0.25
+      },
+      "prefabKey": "furniture/shelf_wall_01",
+      "allowedMaterialIds": [
+        "mat_wood_oak_01",
+        "mat_wood_walnut_01"
+      ],
+      "placement": "wall",
+      "alignToWall": false,
+      "mountHeight": 1.5
+    },
+    {
+      "id": "lamp_ceiling_01",
+      "name": "Потолочный светильник",
+      "categoryId": "lighting",
+      "size": {
+        "x": 0.5,
+        "y": 0.15,
+        "z": 0.5
+      },
+      "prefabKey": "furniture/lamp_ceiling_01",
+      "allowedMaterialIds": [
+        "mat_metal_01"
+      ],
+      "placement": "ceiling",
+      "alignToWall": false
+    },
+    {
+      "id": "lamp_pendant_01",
+      "name": "Подвесной светильник",
+      "categoryId": "lighting",
+      "size": {
+        "x": 0.4,
+        "y": 0.6,
+        "z": 0.4
+      },
+      "prefabKey": "furniture/lamp_pendant_01",
+      "allowedMaterialIds": [
+        "mat_metal_01"
+      ],
+      "placement": "ceiling",
+      "alignToWall": false
+    },
+    {
+      "id": "lamp_floor_01",
+      "name": "Торшер",
+      "categoryId": "lighting",
+      "size": {
+        "x": 0.35,
+        "y": 1.6,
+        "z": 0.35
+      },
+      "prefabKey": "furniture/lamp_floor_01",
+      "allowedMaterialIds": [
+        "mat_metal_01"
+      ],
+      "placement": "floor",
+      "alignToWall": false
+    },
+    {
+      "id": "lamp_wall_01",
+      "name": "Бра",
+      "categoryId": "lighting",
+      "size": {
+        "x": 0.2,
+        "y": 0.25,
+        "z": 0.15
+      },
+      "prefabKey": "furniture/lamp_wall_01",
+      "allowedMaterialIds": [
+        "mat_metal_01"
+      ],
+      "placement": "wall",
+      "alignToWall": false,
+      "mountHeight": 1.7
+    },
+    {
+      "id": "picture_wall_01",
+      "name": "Картина",
+      "categoryId": "decor",
+      "size": {
+        "x": 0.8,
+        "y": 0.6,
+        "z": 0.04
+      },
+      "prefabKey": "furniture/picture_wall_01",
+      "allowedMaterialIds": [],
+      "placement": "wall",
+      "alignToWall": false,
+      "mountHeight": 1.4
+    },
+    {
+      "id": "board_wall_01",
+      "name": "Доска",
+      "categoryId": "decor",
+      "size": {
+        "x": 2.0,
+        "y": 1.0,
+        "z": 0.05
+      },
+      "prefabKey": "furniture/board_wall_01",
+      "allowedMaterialIds": [],
+      "placement": "wall",
+      "alignToWall": false,
+      "mountHeight": 1.5
+    },
+    {
+      "id": "plant_floor_01",
+      "name": "Растение в кадке",
+      "categoryId": "decor",
+      "size": {
+        "x": 0.5,
+        "y": 1.2,
+        "z": 0.5
+      },
+      "prefabKey": "furniture/plant_floor_01",
+      "allowedMaterialIds": [],
+      "placement": "floor",
+      "alignToWall": false
+    },
+    {
+      "id": "rug_01",
+      "name": "Ковёр",
+      "categoryId": "decor",
+      "size": {
+        "x": 2.0,
+        "y": 0.02,
+        "z": 1.4
+      },
+      "prefabKey": "furniture/rug_01",
+      "allowedMaterialIds": [
+        "mat_fabric_grey_01",
+        "mat_carpet_grey_01"
+      ],
+      "placement": "floor",
+      "alignToWall": false
+    }
+  ],
+  "materials": [
+    {
+      "id": "mat_wood_oak_01",
+      "name": "Дуб",
+      "surfaces": [
+        "floor",
+        "object"
+      ]
+    },
+    {
+      "id": "mat_wood_walnut_01",
+      "name": "Орех",
+      "surfaces": [
+        "floor",
+        "object"
+      ]
+    },
+    {
+      "id": "mat_laminate_grey_01",
+      "name": "Ламинат серый",
+      "surfaces": [
+        "floor"
+      ]
+    },
+    {
+      "id": "mat_tile_white_01",
+      "name": "Плитка белая",
+      "surfaces": [
+        "floor",
+        "wall"
+      ]
+    },
+    {
+      "id": "mat_tile_dark_01",
+      "name": "Плитка тёмная",
+      "surfaces": [
+        "floor",
+        "wall"
+      ]
+    },
+    {
+      "id": "mat_carpet_grey_01",
+      "name": "Ковролин серый",
+      "surfaces": [
+        "floor"
+      ]
+    },
+    {
+      "id": "mat_concrete_01",
+      "name": "Бетон",
+      "surfaces": [
+        "floor",
+        "wall",
+        "ceiling"
+      ]
+    },
+    {
+      "id": "mat_paint_white_01",
+      "name": "Краска белая",
+      "surfaces": [
+        "wall",
+        "ceiling"
+      ]
+    },
+    {
+      "id": "mat_paint_beige_01",
+      "name": "Краска бежевая",
+      "surfaces": [
+        "wall",
+        "ceiling"
+      ]
+    },
+    {
+      "id": "mat_paint_grey_01",
+      "name": "Краска серая",
+      "surfaces": [
+        "wall",
+        "ceiling"
+      ]
+    },
+    {
+      "id": "mat_paint_blue_01",
+      "name": "Краска голубая",
+      "surfaces": [
+        "wall"
+      ]
+    },
+    {
+      "id": "mat_brick_01",
+      "name": "Кирпич",
+      "surfaces": [
+        "wall"
+      ]
+    },
+    {
+      "id": "mat_plaster_01",
+      "name": "Штукатурка",
+      "surfaces": [
+        "wall",
+        "ceiling"
+      ]
+    },
+    {
+      "id": "mat_ceiling_white_01",
+      "name": "Потолок белый",
+      "surfaces": [
+        "ceiling"
+      ]
+    },
+    {
+      "id": "mat_fabric_grey_01",
+      "name": "Ткань серая",
+      "surfaces": [
+        "object"
+      ]
+    },
+    {
+      "id": "mat_leather_black_01",
+      "name": "Кожа чёрная",
+      "surfaces": [
+        "object"
+      ]
+    },
+    {
+      "id": "mat_metal_01",
+      "name": "Металл",
+      "surfaces": [
+        "object"
+      ]
+    },
+    {
+      "id": "mat_glass_01",
+      "name": "Стекло",
+      "surfaces": [
+        "object"
+      ]
+    },
+    {
+      "id": "mat_wood_door_01",
+      "name": "Дерево двери",
+      "surfaces": [
+        "object"
+      ]
+    }
+  ]
+}
