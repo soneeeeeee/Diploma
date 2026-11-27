@@ -153,7 +153,7 @@ namespace XrInterior.ProjectData
     public class SnapshotVolume : ExtensibleEntity
     {
         public string Id { get; set; }
-        /// <summary>Подпись из сканирования: "table", "couch" и т. п.</summary>
+        /// <summary>Метка объёма: table, sofa, bed, cabinet, chair или other.</summary>
         public string Label { get; set; }
         public Vec3 Center { get; set; } = Vec3.Zero;
         public float RotationY { get; set; } = 0f;

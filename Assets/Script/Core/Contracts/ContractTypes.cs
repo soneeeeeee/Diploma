@@ -29,7 +29,7 @@ namespace XRInterior.Contracts
         Other
     }
 
-    /// <summary>Плоскость из скана помещения (метры, система координат проекта).</summary>
+    /// <summary>«система координат сессии сканирования (как отдаёт MRUK).</summary>
     public struct RealPlane
     {
         public string Id;
